@@ -1,4 +1,7 @@
-import inspect
+try:
+    from inspect import signature as funcsignature
+except ImportError:
+    from funcsigs import signature as funcsignature
 
 
 def noop(engine): return
@@ -38,7 +41,7 @@ class Engine(object):
         return self._stack[-1]
 
     def register(self, operation, function):
-        signature = inspect.signature(function)
+        signature = funcsignature(function)
         if (
                 len(signature.parameters) != 1
                 or 'engine' not in signature.parameters
