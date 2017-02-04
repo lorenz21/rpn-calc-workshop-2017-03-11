@@ -9,5 +9,6 @@ install:
   - "pip install -r test_requirements.txt"
 script:
   - "python -m test.engine"
+  - "python -m test.parser"
   - "flake8 rpncalculator"
   - "flake8 test"
