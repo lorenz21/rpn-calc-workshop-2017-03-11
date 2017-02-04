@@ -41,3 +41,23 @@ throw an error. The function may perform any sequence of calls to `push`,
 `pop`, and `execute`; however, to be RPN-compliant it should only `pop`
 exactly the number of times to retrieve the necessary values and then `push`
 once (performing necessary algorithmic steps in-between).
+
+
+## Using the Parser
+
+Instead of interacting programmatically with the calculator, you can also
+supply input as a string or as an open file object:
+
+    import rpncalculator
+    
+    # Note: this example assumes the '+' operation has been registered
+    # as previously demonstrated.
+    
+    parser = rpncalculator.Parser()
+    result = parser.process('1 1 +')    # result = 2
+    
+    with open(myinputfile) as f:
+        result = parser.process(f)
+
+Files can be arbitrarily large; the tokenization engine is smart about only
+tokenizing small chunks of the input at a time.
