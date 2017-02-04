@@ -38,8 +38,8 @@ Additional functions can be added to the calculator using the
 Registered functions must have the signature `fn(engine)` or the call to
 `register` will fail. An attempt to register the same function name twice will
 throw an error. The function may perform any sequence of calls to `push`,
-`pop`, and `execute`; however, to be RPN-compliant it should only `pop`
-exactly the number of times to retrieve the necessary values and then `push`
+`pop`, and `execute`; however, to be RPN-correct it should only `pop` exactly
+the number of times needed to retrieve the necessary values and then `push`
 once (performing necessary algorithmic steps in-between).
 
 
