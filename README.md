@@ -25,6 +25,27 @@ functionality can be registered as needed (see **Extending the Calculator**).
     calc.execute('noop')
 
 
+## Unit Tests
+
+### Installing the test harness
+
+You might need to install `setuptools` in your environment:
+
+    pip install setuptools
+
+Once `setuptools` is installed, all testing is handled through `setup.py`.
+
+### Running the test suite
+
+The easiest way to run the test suite is using `setup.py`:
+
+    python setup.py test
+
+### Adding new tests
+
+If new tests need to be added to the project, put them in `test/<module_name>.py` and add `from <module_name> import *` to `test/__init__.py`.
+
+
 ## Extending the Calculator
 
 Additional functions can be added to the calculator using the

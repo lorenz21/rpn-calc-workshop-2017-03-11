@@ -22,4 +22,10 @@ setup(
     ],
     install_requires=[
     ],
+    tests_require=[
+        'nose',
+        'mock',
+        'flake8',
+    ],
+    test_suite='nose.collector',
 )
