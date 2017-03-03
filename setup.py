@@ -21,11 +21,11 @@ setup(
         'Programming Language :: Python :: 3.5'
     ],
     install_requires=[
+        'funcsigs',
     ],
     tests_require=[
         'nose',
         'mock',
-        'flake8',
     ],
     test_suite='nose.collector',
 )
