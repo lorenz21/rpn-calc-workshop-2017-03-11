@@ -5,7 +5,7 @@ setup(
     version='0.0.1',
     author='jeffrey k eliasen',
     author_email='jeff+rpn-calc-engine@jke.net',
-    description = 'an RPN calculator engine for use in workshops',
+    description='an RPN calculator engine for use in workshops',
     license='MIT',
     keywords='calculator',
     url='',
