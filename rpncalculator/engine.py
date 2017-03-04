@@ -8,6 +8,7 @@ except ImportError:
 from .errors import DuplicateOperationError
 from .errors import InvalidOperationSignatureError
 from .errors import InvalidValueTypeError
+from .functions import register_all
 
 
 def noop(engine):  # pylint: disable=W0613
@@ -18,9 +19,11 @@ def noop(engine):  # pylint: disable=W0613
 class Engine(object):
     """Calculation engine"""
 
-    def __init__(self):
+    def __init__(self, auto_register=True):
         self._stack = []
         self._operations = {'noop': noop}
+        if auto_register:
+            register_all(self)
 
     def pop(self):
         """remove one value from the stack and return it"""

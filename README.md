@@ -15,14 +15,27 @@ to express functions.
 ## Sample Usage
 
 Instantiate the calculator, then apply operations by calling `push()` and
-`execute()`. The only built-in function is `noop` (no-operation), all desired
-functionality can be registered as needed (see **Extending the Calculator**).
+`execute()`. The only built-in functions are `noop` (no-operation), `+` (add),
+and `/` (floating-point division); additional desired functionality can be
+registered as needed (see **Extending the Calculator**).
 
     import rpncalculator
     
     calc = rpncalculator.Engine()
     calc.push(1)
     calc.execute('noop')
+    calc.push(2)
+    calc.push(3)
+    calc.execute('+')  # returns 5
+
+To get a bare-bones calculator with no registered functions other than `noop`,
+pass `auto_register=False` to the constructor:
+
+    import rpncalculator
+    
+    calc = rpncalculator.Engine(auto_register=False)
+    calc.execute('noop')  # succeeds
+    calc.execute('+')     # fails, function is not defined
 
 
 ## Unit Tests
@@ -43,7 +56,8 @@ The easiest way to run the test suite is using `setup.py`:
 
 ### Adding new tests
 
-If new tests need to be added to the project, put them in `test/<module_name>.py` and add `from <module_name> import *` to `test/__init__.py`.
+If new tests need to be added to the project, put them in `test/<module_name>.py`
+and add `from <module_name> import *` to `test/__init__.py`.
 
 
 ## Extending the Calculator

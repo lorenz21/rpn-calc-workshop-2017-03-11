@@ -92,7 +92,7 @@ def wrong_parameter_name_function(x):  # pylint: disable=W0613
 class TestRegister(unittest.TestCase):
 
     def setUp(self):
-        self.engine = rpncalculator.Engine()
+        self.engine = rpncalculator.Engine(auto_register=False)
 
     def test_register_exists(self):
         self.assertTrue(callable(self.engine.register))
