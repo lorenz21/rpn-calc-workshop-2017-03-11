@@ -1,3 +1,8 @@
+"""Top-level module for rpncalculator.
+
+This module loads all imports expected to be used by package consumers.
+"""
+
 from .engine import Engine                            # noqa
 from .parser import Parser                            # noqa
 

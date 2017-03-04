@@ -1,20 +1,23 @@
+# pylint: disable=C0103,C0111
+
 import unittest
 
 import collections
-import mock
 import os
 import types
+
+import mock
 
 import rpncalculator
 
 
-test_input_single_line = '1 +2 -3 4.0 +5.1 -6.2 a'
-test_input_multi_line = """1
+TEST_INPUT_SINGLE_LINE = '1 +2 -3 4.0 +5.1 -6.2 a'
+TEST_INPUT_MULTI_LINE = """1
 +2
  -3 4.0
       +5.1
 -6.2 a"""
-expected_tokenization = [1, 2, -3, 4.0, 5.1, -6.2, 'a']
+EXPECTED_TOKENIZATION = [1, 2, -3, 4.0, 5.1, -6.2, 'a']
 
 
 class TestScanner(unittest.TestCase):
@@ -29,14 +32,14 @@ class TestScanner(unittest.TestCase):
 
     def test_parser_tokenizes_input_on_whitespace(self):
         self.assertEqual(
-            list(self.parser.scan(test_input_single_line)),
-            expected_tokenization
+            list(self.parser.scan(TEST_INPUT_SINGLE_LINE)),
+            EXPECTED_TOKENIZATION
             )
 
     def test_parser_tokenizes_multi_line_input(self):
         self.assertEqual(
-            list(self.parser.scan(test_input_multi_line)),
-            expected_tokenization
+            list(self.parser.scan(TEST_INPUT_MULTI_LINE)),
+            EXPECTED_TOKENIZATION
             )
 
     def test_parser_tokenizes_file_input(self):
@@ -47,7 +50,7 @@ class TestScanner(unittest.TestCase):
         with open(path) as infile:
             self.assertEqual(
                 list(self.parser.scan(infile)),
-                expected_tokenization
+                EXPECTED_TOKENIZATION
                 )
 
 

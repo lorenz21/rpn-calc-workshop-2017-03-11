@@ -1,3 +1,5 @@
+# pylint: disable=C0103,C0111,W0212
+
 import unittest
 import rpncalculator
 
@@ -71,7 +73,7 @@ class TestPop(unittest.TestCase):
             self.assertEqual(len(stack), i-1)
 
 
-def null_operation(engine):
+def null_operation(engine):  # pylint: disable=W0613
     return
 
 
@@ -79,11 +81,11 @@ def no_parameter_function():
     return
 
 
-def two_parameter_function(engine, x):
+def two_parameter_function(engine, x):  # pylint: disable=W0613
     return
 
 
-def wrong_parameter_name_function(x):
+def wrong_parameter_name_function(x):  # pylint: disable=W0613
     return
 
 
