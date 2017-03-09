@@ -11,7 +11,7 @@ from .errors import InvalidValueTypeError
 from .functions import register_all
 
 
-def noop(engine):  # pylint: disable=W0613
+def noop(engine):
     """No-Op (do nothing) operator"""
     return
 

@@ -16,7 +16,7 @@ def register(operator_name):
 def register_all(engine):
     """iterate over all members of this module and register all functors with
     'register' attribute"""
-    for name, val in sys.modules[__name__].__dict__.items():  # noqa pylint: disable=W0612
+    for name, val in sys.modules[__name__].__dict__.items():  # noqa
         if hasattr(val, 'is_registerable'):
             engine.register(val.operator_name, val)
 

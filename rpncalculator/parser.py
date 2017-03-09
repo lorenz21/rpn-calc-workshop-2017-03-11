@@ -9,22 +9,22 @@ except ImportError:
 from .engine import Engine
 
 
-def s_float(scanner, token):  # pylint: disable=W0613
+def s_float(scanner, token):
     """return token as a float"""
     return float(token)
 
 
-def s_int(scanner, token):  # pylint: disable=W0613
+def s_int(scanner, token):
     """return token as an integer"""
     return int(token)
 
 
-def s_operator(scanner, token):  # pylint: disable=W0613
+def s_operator(scanner, token):
     """return token as an operation name"""
     return token
 
 
-_scanner = re.Scanner([  # pylint: disable=C0103
+_scanner = re.Scanner([
     (r'(\+|-)?\d*\.\d*', s_float),
     (r'(\+|-)?\d+', s_int),
     (r'\S+', s_operator),
@@ -35,13 +35,13 @@ _scanner = re.Scanner([  # pylint: disable=C0103
 class Parser(object):
     """Input stream parser/tokenizer and processor"""
 
-    def scan(self, stream):  # pylint: disable=R0201
+    def scan(self, stream):
         """scan input stream and return token generator"""
         if isinstance(stream, str):
             stream = StringIO(stream)
         for line in stream:
-            tokens, remainder = _scanner.scan(line)  # pylint: disable=W0612
-            for t in tokens:  # pylint: disable=C0103
+            tokens, remainder = _scanner.scan(line)
+            for t in tokens:
                 yield t
 
     def process(self, stream, engine=None):

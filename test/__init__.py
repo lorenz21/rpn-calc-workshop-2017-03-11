@@ -1,5 +1,3 @@
-# pylint: disable=C0111,W0401
-
 from .engine import *             # noqa
 from .functions import *          # noqa
 from .functors_register import *  # noqa

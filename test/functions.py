@@ -1,5 +1,3 @@
-# pylint: disable=C0103,C0111,W0212
-
 import unittest
 import rpncalculator
 

@@ -3,8 +3,6 @@
 This module loads all imports expected to be used by package consumers.
 """
 
-# pylint: disable=W0401
-
 
 from .engine import Engine                            # noqa
 from .parser import Parser                            # noqa
