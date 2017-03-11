@@ -39,3 +39,7 @@ def add_one(engine):
     """iterate by one"""
     engine.push(engine.pop() + 1)
 
+@register('*')
+def multiplication(engine):
+    """add the top two numbers on the stack"""
+    engine.push(engine.pop() * engine.pop())
