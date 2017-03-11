@@ -33,3 +33,9 @@ def divide(engine):
     dividend = engine.pop()
     divisor = engine.pop()
     engine.push(1. * divisor / dividend)
+
+
+@register('*')
+def multiplication(engine):
+    """add the top two numbers on the stack"""
+    engine.push(engine.pop() * engine.pop())
