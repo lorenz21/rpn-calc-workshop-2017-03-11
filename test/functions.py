@@ -64,7 +64,5 @@ class TestMultiplication(TestFunction):
         self.assertEqual(self.engine.pop(), 0)
 
 
-
-
 if __name__ == '__main__':
     unittest.main()
