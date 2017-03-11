@@ -44,6 +44,15 @@ class TestDivide(TestFunction):
         with self.assertRaises(ZeroDivisionError):
             self.engine.execute('/')
 
+class TestIn2Cm(TestFunction):
+
+    def test_in2cm(self):
+        self.engine.push(1)
+        result = self.engine.execute('in2cm')
+        self.assertEqual(result, 2.54)
+        self.assertEqual(len(self.engine._stack), 1)
+
+
 
 if __name__ == '__main__':
     unittest.main()

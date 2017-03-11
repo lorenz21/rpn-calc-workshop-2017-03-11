@@ -33,3 +33,9 @@ def divide(engine):
     dividend = engine.pop()
     divisor = engine.pop()
     engine.push(1. * divisor / dividend)
+
+@register('in2cm')
+def in2cm(engine):
+    """multiply stack[-1] by 2.54"""
+    inches = engine.pop()
+    engine.push(inches * 2.54)
