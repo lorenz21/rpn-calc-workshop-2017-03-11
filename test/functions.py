@@ -59,6 +59,9 @@ class TestMultiplication(TestFunction):
         self.engine.push(2)
         self.engine.push(0)
         result = self.engine.execute('*')
+        self.assertEqual(result, 0)
+        self.assertEqual(len(self.engine._stack), 1)
+        self.assertEqual(self.engine.pop(), 0)
 
 
 class TestNegate(TestFunction):
@@ -86,7 +89,7 @@ class TestNegate(TestFunction):
         self.assertEqual(result, 4)
         self.assertEqual(len(self.engine._stack), 1)
         self.assertEqual(self.engine.pop(), 4)
-        
+
 
 if __name__ == '__main__':
     unittest.main()
