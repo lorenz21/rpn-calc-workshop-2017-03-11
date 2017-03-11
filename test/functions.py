@@ -45,5 +45,26 @@ class TestDivide(TestFunction):
             self.engine.execute('/')
 
 
+class TestMultiplication(TestFunction):
+
+    def test_multiplication(self):
+        self.engine.push(2)
+        self.engine.push(3)
+        result = self.engine.execute('*')
+        self.assertEqual(result, 6)
+        self.assertEqual(len(self.engine._stack), 1)
+        self.assertEqual(self.engine.pop(), 6)
+
+    def test_multiplication_zero(self):
+        self.engine.push(2)
+        self.engine.push(0)
+        result = self.engine.execute('*')
+        self.assertEqual(result, 0)
+        self.assertEqual(len(self.engine._stack), 1)
+        self.assertEqual(self.engine.pop(), 0)
+
+
+
+
 if __name__ == '__main__':
     unittest.main()
