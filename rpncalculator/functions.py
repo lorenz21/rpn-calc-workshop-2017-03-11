@@ -65,4 +65,3 @@ def multiplication(engine):
 def negate(engine):
     """negates the top number on the stack"""
     engine.push(-engine.pop())
-
