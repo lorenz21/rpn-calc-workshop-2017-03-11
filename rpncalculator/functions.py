@@ -35,12 +35,12 @@ def divide(engine):
     engine.push(1. * divisor / dividend)
 
 
-
 @register('squared')
 def squared(engine):
     """multiply the number by itself"""
     squr = engine.pop()
     engine.push(squr * squr)
+
 
 @register('in2cm')
 def in2cm(engine):
