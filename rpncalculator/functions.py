@@ -39,3 +39,14 @@ def in2cm(engine):
     """multiply stack[-1] by 2.54"""
     inches = engine.pop()
     engine.push(inches * 2.54)
+
+@register('*')
+def multiplication(engine):
+    """add the top two numbers on the stack"""
+    engine.push(engine.pop() * engine.pop())
+
+
+@register('neg')
+def negate(engine):
+    """negates the top number on the stack"""
+    engine.push(-engine.pop())
