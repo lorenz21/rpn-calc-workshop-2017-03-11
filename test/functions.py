@@ -45,6 +45,7 @@ class TestDivide(TestFunction):
             self.engine.execute('/')
 
 
+
 class TestSquared(TestFunction):
     def test_squared(self):
         self.engine.push(4)
@@ -53,6 +54,69 @@ class TestSquared(TestFunction):
         self.assertEqual(len(self.engine._stack), 1)
         self.assertEqual(self.engine.pop(), 16)
 
+class TestIn2Cm(TestFunction):
+
+    def test_in2cm(self):
+        self.engine.push(1)
+        result = self.engine.execute('in2cm')
+        self.assertEqual(result, 2.54)
+        self.assertEqual(len(self.engine._stack), 1)
+
+
+class TestMultiplication(TestFunction):
+
+    def test_multiplication(self):
+        self.engine.push(2)
+        self.engine.push(3)
+        result = self.engine.execute('*')
+        self.assertEqual(result, 6)
+        self.assertEqual(len(self.engine._stack), 1)
+        self.assertEqual(self.engine.pop(), 6)
+
+    def test_multiplication_zero(self):
+        self.engine.push(2)
+        self.engine.push(0)
+        result = self.engine.execute('*')
+        self.assertEqual(result, 0)
+        self.assertEqual(len(self.engine._stack), 1)
+        self.assertEqual(self.engine.pop(), 0)
+
+
+class TestNegate(TestFunction):
+
+    def setUp(self):
+        super(TestNegate, self).setUp()
+
+    def test_negate(self):
+        self.engine.push(4)
+        result = self.engine.execute('neg')
+        self.assertEqual(result, -4)
+        self.assertEqual(len(self.engine._stack), 1)
+        self.assertEqual(self.engine.pop(), -4)
+
+    def test_negate_zero(self):
+        self.engine.push(0)
+        result = self.engine.execute('neg')
+        self.assertEqual(result, 0)
+        self.assertEqual(len(self.engine._stack), 1)
+        self.assertEqual(self.engine.pop(), 0)
+
+    def test_negate_negative(self):
+        self.engine.push(-4)
+        result = self.engine.execute('neg')
+        self.assertEqual(result, 4)
+        self.assertEqual(len(self.engine._stack), 1)
+        self.assertEqual(self.engine.pop(), 4)
+
+
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestAddOne(TestFunction):
+    def test_add_one(self):
+        self.engine.push(60)
+        result = self.engine.execute('++')
+        self.assertEqual(result, 61)
+        self.assertEqual(len(self.engine._stack), 1)
