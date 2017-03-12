@@ -93,3 +93,11 @@ class TestNegate(TestFunction):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestAddOne(TestFunction):
+    def test_add_one(self):
+        self.engine.push(60)
+        result = self.engine.execute('++')
+        self.assertEqual(result, 61)
+        self.assertEqual(len(self.engine._stack), 1)
