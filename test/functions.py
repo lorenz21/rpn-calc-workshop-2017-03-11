@@ -45,5 +45,14 @@ class TestDivide(TestFunction):
             self.engine.execute('/')
 
 
+class TestSquared(TestFunction):
+    def test_squared(self):
+        self.engine.push(4)
+        result = self.engine.execute('squared')
+        self.assertEqual(result, 16)
+        self.assertEqual(len(self.engine._stack), 1)
+        self.assertEqual(self.engine.pop(), 16)
+
+
 if __name__ == '__main__':
     unittest.main()

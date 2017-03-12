@@ -33,3 +33,10 @@ def divide(engine):
     dividend = engine.pop()
     divisor = engine.pop()
     engine.push(1. * divisor / dividend)
+
+
+@register('squared')
+def squared(engine):
+    """multiply the number by itself"""
+    squr = engine.pop()
+    engine.push(squr * squr)
