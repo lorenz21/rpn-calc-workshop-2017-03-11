@@ -45,7 +45,6 @@ class TestDivide(TestFunction):
             self.engine.execute('/')
 
 
-
 class TestSquared(TestFunction):
     def test_squared(self):
         self.engine.push(4)
@@ -53,6 +52,7 @@ class TestSquared(TestFunction):
         self.assertEqual(result, 16)
         self.assertEqual(len(self.engine._stack), 1)
         self.assertEqual(self.engine.pop(), 16)
+
 
 class TestIn2Cm(TestFunction):
 
@@ -107,7 +107,6 @@ class TestNegate(TestFunction):
         self.assertEqual(result, 4)
         self.assertEqual(len(self.engine._stack), 1)
         self.assertEqual(self.engine.pop(), 4)
-
 
 
 if __name__ == '__main__':
