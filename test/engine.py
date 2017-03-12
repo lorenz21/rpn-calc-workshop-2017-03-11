@@ -135,7 +135,7 @@ def add(engine):
 class TestExecute(unittest.TestCase):
 
     def setUp(self):
-        self.engine = rpncalculator.Engine()
+        self.engine = rpncalculator.Engine(auto_register=False)
 
     def test_execute_exists(self):
         self.assertTrue(callable(self.engine.execute))
