@@ -74,5 +74,3 @@ class TestAddOne(TestFunction):
         result = self.engine.execute('++')
         self.assertEqual(result, 61)
         self.assertEqual(len(self.engine._stack), 1)
-
-
