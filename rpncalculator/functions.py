@@ -41,6 +41,11 @@ def in2cm(engine):
     inches = engine.pop()
     engine.push(inches * 2.54)
 
+@register('++')
+def add_one(engine):
+    """iterate by one"""
+    engine.push(engine.pop() + 1)
+
 
 @register('*')
 def multiplication(engine):
