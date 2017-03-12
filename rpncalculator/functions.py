@@ -35,6 +35,13 @@ def divide(engine):
     engine.push(1. * divisor / dividend)
 
 
+@register('in2cm')
+def in2cm(engine):
+    """multiply stack[-1] by 2.54"""
+    inches = engine.pop()
+    engine.push(inches * 2.54)
+
+
 @register('++')
 def add_one(engine):
     """iterate by one"""
